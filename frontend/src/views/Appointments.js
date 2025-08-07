@@ -1,0 +1,1 @@
+export const Appointments = () => '<h1>Appointments</h1>';

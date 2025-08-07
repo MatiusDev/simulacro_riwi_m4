@@ -1,0 +1,1 @@
+export const Patients = () => '<h1>Patients</h1>';
