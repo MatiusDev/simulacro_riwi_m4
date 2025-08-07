@@ -1,22 +1,34 @@
-import { Login } from './views/Login.js';
-import { Doctors } from './views/Doctors.js';
-import { Patients } from './views/Patients.js';
-import { Appointments } from './views/Appointments.js';
+import { Login } from './components/views/Login/Login.js';
+import { Doctors } from './components/views/Doctors.js';
+import { Patients } from './components/views/Patients.js';
+import { Appointments } from './components/views/Appointments.js';
 import { NotFound } from './components/NotFound.js';
 
 const routes = {
-  '#/': Login,
-  '#/doctors': Doctors,
-  '#/patients': Patients,
-  '#/appointments': Appointments,
+  '#/': { sectionId: 'login', component: Login },
+  '#/doctors': { sectionId: 'doctors', component: Doctors },
+  '#/patients': { sectionId: 'patients', component: Patients },
+  '#/appointments': { sectionId: 'appointments', component: Appointments }
 };
 
 const router = () => {
-  const content = document.getElementById('content');
   const path = window.location.hash || '#/';
-
-  content.innerHTML = routes[path] ? routes[path]() : NotFound();
+  const component = routes[path] ? routes[path]['component']() : NotFound();
+  setView(component);
 };
+
+const setView = (view) => {
+  const content = document.getElementById('content');
+
+  if (typeof view === 'string') {
+    content.innerHTML = view;
+  } else if (view instanceof HTMLElement) {
+    content.innerHTML = '';
+    content.appendChild(view);
+  } else {
+    throw new Error('An error ocurred while rendering the view');
+  }
+}
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
