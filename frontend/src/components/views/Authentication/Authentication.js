@@ -1,9 +1,10 @@
-import { setUserData } from "../../../utils/localStorage.js";
-import './Login.css';
+import './Authentication.css';
 
-const Login = () => {
+import { setUserData } from "../../../utils/localStorage.js";
+
+const Authentication = () => {
   const container = document.createElement('div');
-  container.classList.add('login-container');
+  container.classList.add('auth-container');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -90,4 +91,4 @@ const Login = () => {
   return container;
 };
 
-export default Login;
+export default Authentication;

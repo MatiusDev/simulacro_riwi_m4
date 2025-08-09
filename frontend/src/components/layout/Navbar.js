@@ -1,5 +1,6 @@
-import { clearUserData } from '../../utils/localStorage.js';
 import './layout.css';
+
+import { clearUserData } from '../../utils/localStorage.js';
 
 const Navbar = () => {
   const nav = document.createElement('nav');

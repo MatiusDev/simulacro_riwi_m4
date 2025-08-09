@@ -1,4 +1,4 @@
-import Login from './views/Login/Login.js';
+import Authentication from './views/Authentication/Authentication.js';
 import Patient from './views/Patient/Patient.js';
 import Doctor from './views/Doctor/Doctor.js';
 import Appointment from './views/Appointment/Appointment.js';
@@ -7,8 +7,10 @@ import NotFound from './views/NotFound/NotFound.js';
 import Navbar from './layout/Navbar.js';
 import Section from './layout/Section.js';
 
+import { getUserData } from '../utils/localStorage.js';
+
 const routes = {
-  '#/': { sectionId: 'login', component: Login, private: false },
+  '#/': { sectionId: 'auth', component: Authentication, private: false },
   '#/doctors': { sectionId: 'doctors', component: Doctor, private: true },
   '#/patients': { sectionId: 'patients', component: Patient, private: true },
   '#/appointments': { sectionId: 'appointments', component: Appointment, private: true },
@@ -17,7 +19,7 @@ const routes = {
 
 const handleRouting = () => {
   const path = window.location.hash || '#/';
-  const currentUser = 'mateo'; // Replace with real auth check
+  const currentUser = getUserData();
 
   if (currentUser && path === '#/') {
     window.location.hash = '#/doctors';
