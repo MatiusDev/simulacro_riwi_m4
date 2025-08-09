@@ -1,5 +1,5 @@
 const getPatients = async (req, res) => {
-  res.send('GET test');
+  res.json({ message: "GET test" });
 };
 
 const createPatient = async (req, res) => {

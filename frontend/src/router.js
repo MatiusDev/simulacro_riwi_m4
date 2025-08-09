@@ -1,6 +1,6 @@
 import { Login } from './components/views/Login/Login.js';
 import { Doctors } from './components/views/Doctors.js';
-import { Patients } from './components/views/Patients.js';
+import { Patients } from './components/views/Patients/Patients.js';
 import { Appointments } from './components/views/Appointments.js';
 import { NotFound } from './components/NotFound.js';
 

@@ -4,7 +4,7 @@ const SV_PORT = 3000;
 
 const DB_USER = 'developer';
 const DB_HOST = 'localhost';
-const DB_DATABASE = 'testdb';
+const DB_DATABASE = 'devdb';
 const DB_PASSWORD = '123456';
 const DB_PORT = 5432;
 
