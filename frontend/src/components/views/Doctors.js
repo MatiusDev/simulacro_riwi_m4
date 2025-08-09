@@ -1,1 +1,0 @@
-export const Doctors = () => '<h1>Doctors</h1>';
