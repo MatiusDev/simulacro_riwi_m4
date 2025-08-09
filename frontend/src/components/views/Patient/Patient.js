@@ -1,7 +1,7 @@
 import './Patient.css';
 import { getPatients } from '../../../api/patientService.js';
 
-export const Patient = () => {
+const Patient = () => {
   const container = document.createElement('div');
 
   const loadPatients = async () => {
@@ -18,3 +18,5 @@ export const Patient = () => {
   `;
   return container;
 };
+
+export default Patient;

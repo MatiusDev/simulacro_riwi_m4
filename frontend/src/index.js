@@ -1,15 +1,5 @@
 import './index.css';
 
-import router from './router.js';
+import App from './components/App.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = document.getElementById('app');
-
-  const layout = `
-    <main id="content"></main>
-  `;
-
-  app.innerHTML = layout;
-
-  router();
-});
+document.addEventListener('DOMContentLoaded', () => document.getElementById('app').appendChild(App()));

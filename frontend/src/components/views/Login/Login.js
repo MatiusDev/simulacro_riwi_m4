@@ -1,7 +1,7 @@
 import { setUserData } from "../../../utils/localStorage.js";
 import './Login.css';
 
-export const Login = () => {
+const Login = () => {
   const container = document.createElement('div');
   container.classList.add('login-container');
 
@@ -89,3 +89,5 @@ export const Login = () => {
 
   return container;
 };
+
+export default Login;
