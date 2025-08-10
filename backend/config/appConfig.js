@@ -16,7 +16,7 @@ const DB_POOL = new Pool({
     port: DB_PORT,
 });
 
-export const config = {
+export {
     SV_PORT,
     DB_POOL
 }
