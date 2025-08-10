@@ -28,18 +28,48 @@ const getData = async (endpoint, options = {}) => {
     }
 }
 
-const sendData = async (endpoint, options) => {
+const sendData = async (endpoint, data, options = {}) => {
     try {
         const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
             ...defaultOptions,
             ...options,
+            body: JSON.stringify(data),
             method: 'POST',
         });
         const validatedResponse = validateResponse(response);
         return await validatedResponse.json();
     } catch (error) {
-        throw new Error(`Error fetching data: ${error.message}`);
+        throw new Error(`Error posting data: ${error.message}`);
     }
 }
 
-export { getData, sendData };
+const updateData = async (endpoint, id, data, options = {}) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/${endpoint}/${id}`, {
+            ...defaultOptions,
+            ...options,
+            body: JSON.stringify(data),
+            method: 'PUT',
+        });
+        const validatedResponse = validateResponse(response);
+        return await validatedResponse.json();
+    } catch (error) {
+        throw new Error(`Error updating data: ${error.message}`);
+    }
+}
+
+const deleteData = async (endpoint, id, options = {}) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/${endpoint}/${id}`, {
+            ...defaultOptions,
+            ...options,
+            method: 'DELETE',
+        });
+        const validatedResponse = validateResponse(response);
+        return await validatedResponse.json();
+    } catch (error) {
+        throw new Error(`Error deleting data: ${error.message}`);
+    }
+}
+
+export { getData, sendData, updateData, deleteData };

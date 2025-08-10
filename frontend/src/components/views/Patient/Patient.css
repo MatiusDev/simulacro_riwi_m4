@@ -1,0 +1,8 @@
+#patients {
+  padding: 0 1rem;
+  text-align: start;
+}
+
+#patientNameInput,  #patientEmailInput{
+  min-width: 400px;
+}
